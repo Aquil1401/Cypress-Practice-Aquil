@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean:reports": "rimraf cypress/reports",
+    "cypress:run": "cypress run",
+    "report:merge": "mochawesome-merge cypress/reports/mochawesome/*.json --output cypress/reports/mochawesome/output.json",
+    "report:generate": "marge cypress/reports/mochawesome/output.json -f index.html -o cypress/reports/html",
+    "test:ci": "npm run clean:reports && npm run cypress:run && npm run report:merge && npm run report:generate"
   },
   "keywords": [],
   "author": "",
@@ -11,6 +16,10 @@
   "description": "",
   "devDependencies": {
     "cypress": "^15.8.1",
-    "dotenv": "^17.2.3"
+    "dotenv": "^17.2.3",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.0",
+    "mochawesome-report-generator": "^6.3.2",
+    "rimraf": "^6.1.2"
   }
 }

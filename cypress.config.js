@@ -9,18 +9,25 @@ module.exports = defineConfig({
       password: process.env.USER_PASSWORD,
     },
 
+    reporter: "mochawesome",
+    reporterOptions: {
+      reportDir: "cypress/reports/mochawesome",
+      reportFilename: "[name]-[hash]",   // 🔥 MOST IMPORTANT LINE
+      overwrite: false,
+      html: false,
+      json: true,
+      quiet: true
+    },
+
     setupNodeEvents(on, config) {
-      // 🔒 Fail fast only in CI
       if (process.env.CI) {
         if (!config.baseUrl) {
           throw new Error("❌ BASE_URL is missing");
         }
-
         if (!config.env.username || !config.env.password) {
           throw new Error("❌ USER_EMAIL or USER_PASSWORD is missing");
         }
       }
-
       return config;
     },
   },
