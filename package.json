@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "clean:reports": "rimraf cypress/reports",
-    "cypress:run": "cypress run",
-    "report:merge": "mochawesome-merge cypress/reports/mochawesome/*.json > cypress/reports/output.json",
+    "cypress:run": "cypress run --headless --browser chrome --reporter mochawesome",
+    "report:merge": "mochawesome-merge \"cypress/reports/raw/*.json\" > cypress/reports/output.json",
     "report:generate": "marge cypress/reports/output.json -f index.html -o cypress/reports/html",
     "test:ci": "npm run clean:reports && npm run cypress:run && npm run report:merge && npm run report:generate"
   },

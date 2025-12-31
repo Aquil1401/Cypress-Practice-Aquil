@@ -28,10 +28,10 @@ jobs:
 
       - name: Run Cypress Tests & Generate Report
         env:
+          CI: true
           BASE_URL: ${{ secrets.BASE_URL }}
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
-          CI: true
         run: npm run test:ci
 
       - name: Upload Cypress HTML Report
