@@ -14,30 +14,26 @@ jobs:
     timeout-minutes: 60
 
     steps:
-      # 1️⃣ Checkout code
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
-      # 3️⃣ Install dependencies
       - name: Install dependencies
         run: npm ci
 
-      # 4️⃣ Run Cypress tests + generate Mochawesome report
       - name: Run Cypress Tests & Generate Report
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+          CI: true
         run: npm run test:ci
 
-      # 5️⃣ Upload Mochawesome HTML Report
       - name: Upload Cypress HTML Report
         if: always()
         uses: actions/upload-artifact@v4
@@ -46,7 +42,6 @@ jobs:
           path: cypress/reports/html
           retention-days: 15
 
-      # 6️⃣ Upload Screenshots (only on failure)
       - name: Upload Cypress Screenshots
         if: failure()
         uses: actions/upload-artifact@v4
@@ -55,7 +50,6 @@ jobs:
           path: cypress/screenshots
           retention-days: 15
 
-      # 7️⃣ Upload Videos
       - name: Upload Cypress Videos
         if: always()
         uses: actions/upload-artifact@v4

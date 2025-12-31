@@ -1,19 +1,14 @@
 {
   "name": "cypress-practice",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "clean:reports": "rimraf cypress/reports",
     "cypress:run": "cypress run",
-    "report:merge": "mochawesome-merge cypress/reports/mochawesome/*.json --output cypress/reports/mochawesome/output.json",
-    "report:generate": "marge cypress/reports/mochawesome/output.json -f index.html -o cypress/reports/html",
+    "report:merge": "mochawesome-merge cypress/reports/mochawesome/*.json > cypress/reports/output.json",
+    "report:generate": "marge cypress/reports/output.json -f index.html -o cypress/reports/html",
     "test:ci": "npm run clean:reports && npm run cypress:run && npm run report:merge && npm run report:generate"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "devDependencies": {
     "cypress": "^15.8.1",
     "dotenv": "^17.2.3",
