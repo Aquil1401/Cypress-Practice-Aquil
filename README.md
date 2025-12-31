@@ -73,7 +73,7 @@ npm install
 
 3️⃣ Configure environment variables
 
-Create a .env file in the root directory:
+## Create a .env file in the root directory:
 
 BASE_URL=https://www.saucedemo.com
 USER_EMAIL=standard_user
@@ -85,60 +85,49 @@ npx cypress open
 5️⃣ Run tests in headless mode
 npx cypress run
 
-▶️ Cypress Commands
-Run all tests
+## ▶️ Cypress Commands
+## Run all tests
 npx cypress run
 
-Open Cypress UI
+## Open Cypress UI
 npx cypress open
 
-Run specific spec
+## Run specific spec
 npx cypress run --spec cypress/e2e/login.cy.js
 
-🐞 Reports & Debugging
+## 🐞 Reports & Debugging
 
 Screenshots → Auto-captured on failure
-
 Videos → Recorded during headless runs
-
 Time-travel debugging → Cypress UI
-
 Retry support → Configurable in Cypress
 
-Debug mode:
+## Debug mode:
 
 npx cypress open
 
-🧠 Framework Highlights (Interview Points)
+## 🧠 Framework Highlights (Interview Points)
 
 Page Object Model implemented in Cypress
-
 Test data separated using fixtures
-
 Environment-based credential handling
-
 Clean locator strategy
-
 Cypress async handling without async/await
 
-Migrated from Playwright to Cypress (tool adaptability)
 
-🤝 Contributing
+## 🤝 Contributing
 
 Contributions are welcome.
 Feel free to open an issue or submit a pull request.
 
-👤 Author
+## 👤 Author
 
 Md Aquil
 QA Automation Engineer | Cypress | Playwright | JavaScript
 
 Designed and developed this Cypress automation framework from scratch
-
 Migrated an existing Playwright framework to Cypress (JS)
-
 Focused on scalability, maintainability, and interview readiness
-
 Actively maintaining and improving the framework
 
 GitHub:
