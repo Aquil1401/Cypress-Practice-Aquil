@@ -65,7 +65,7 @@ cypress-pom-framework/
 ## 🔧 Installation & Setup
 
 1️⃣ Clone the repository
-git clone https://github.com/yourusername/cypress-pom-framework.git
+git clone https://github.com/Aquil1401/Cypress-Practice-Aquil.git
 cd cypress-pom-framework
 
 2️⃣ Install dependencies
@@ -76,8 +76,8 @@ npm install
 ## Create a .env file in the root directory:
 
 BASE_URL=https://www.saucedemo.com
-USER_EMAIL=standard_user
-USER_PASSWORD=secret_sauce
+USER_EMAIL=
+USER_PASSWORD=
 
 4️⃣ Open Cypress Test Runner
 npx cypress open
